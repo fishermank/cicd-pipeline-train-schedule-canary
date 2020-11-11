@@ -38,7 +38,6 @@ pipeline {
                 }
             }
         }
-        }
         stage('CanaryDeploy') {
             when {
                 branch 'master'
@@ -48,8 +47,8 @@ pipeline {
             }
             steps {
                 kubernetesDeploy(
-                    kubeconfigID: 'kubeconfig',
-                    configs: 'trains-schdeule-kube-canary.yml',
+                    kubeconfigId: 'kubeconfig',
+                    configs: 'train-schedule-kube-canary.yml',
                     enableConfigSubstitution: true
                 )
             }
